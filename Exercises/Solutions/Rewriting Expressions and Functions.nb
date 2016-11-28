@@ -1,0 +1,352 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11146,        343]
+NotebookOptionsPosition[      9381,        281]
+NotebookOutlinePosition[      9740,        297]
+CellTagsIndexPosition[      9697,        294]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Rewriting Expressions and Functions", "Title",
+ CellChangeTimes->{{3.663587269322267*^9, 3.6635872714438343`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Rewriting Expressions", "Section",
+ CellChangeTimes->{{3.662807190030961*^9, 3.6628071921533213`*^9}, {
+  3.662809318132269*^9, 3.662809325422552*^9}}],
+
+Cell["Correct the following expressions:", "Text",
+ CellChangeTimes->{{3.66280932911275*^9, 3.6628093356737823`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"barFunc", 
+   RowBox[{"(", 
+    RowBox[{"list_", ",", "labels"}], ")"}]}], ":=", 
+  RowBox[{"BarChart", "[", 
+   RowBox[{"list", ",", 
+    RowBox[{"ChartLabels", "\[Rule]", "labels"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.66280934766958*^9, 3.662809364287285*^9}, {
+  3.6628094364609957`*^9, 3.6628094375613537`*^9}, {3.662809499050267*^9, 
+  3.662809513870324*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"1", ",", "2", ",", "3"}], ")"}], "+", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", "b", ",", "c"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.662809562566515*^9, 3.662809573105715*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DeleteStopwords", 
+    RowBox[{"(", 
+     RowBox[{"[", 
+      RowBox[{
+      "\"\<this\>\"", ",", "\"\<that\>\"", ",", "\"\<course\>\"", ",", 
+       "\"\<and\>\"", ",", "\"\<more\>\"", ",", "\"\<besides\>\""}]}]}]}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6628095915200977`*^9, 3.6628096492576923`*^9}, {
+  3.662809708083665*^9, 3.662809716597239*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Moving Average", "Section",
+ CellChangeTimes->{{3.662807193570801*^9, 3.6628071965385*^9}}],
+
+Cell["\<\
+Follow these steps to create a function that will achieve the following:\
+\>", "Text",
+ CellChangeTimes->{{3.662809731374345*^9, 3.6628097573143063`*^9}}],
+
+Cell["\<\
+generate random variates \[Rule] calculate a moving average \[Rule] plot the \
+moving average using ListPlot\
+\>", "Text",
+ CellChangeTimes->{{3.662809758596237*^9, 3.66280980447799*^9}}],
+
+Cell[TextData[{
+ StyleBox["HINT: ",
+  FontWeight->"Bold"],
+ "If you make a mistake with your function definition you may wish to inspect \
+the following lines:"
+}], "Text",
+ CellChangeTimes->{{3.662811677612042*^9, 3.6628117034339027`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"removeMe", "[", "x_", "]"}], ":=", 
+  RowBox[{"x", "^", "2"}]}], "\[IndentingNewLine]", 
+ RowBox[{"removeMe", "[", "2", "]"}]}], "Input",
+ CellChangeTimes->{{3.662811706700304*^9, 3.662811720907648*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Remove", "[", "removeMe", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"removeMe", "[", 
+   RowBox[{"x_", "/;", 
+    RowBox[{"x", ">", "10"}]}], "]"}], ":=", 
+  RowBox[{"x", "^", "2"}]}], "\[IndentingNewLine]", 
+ RowBox[{"removeMe", "[", "2", "]"}]}], "Input",
+ CellChangeTimes->{{3.6628117231501102`*^9, 3.662811748176684*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Look up the documentation for RandomVariate and write a script for \
+generating ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ " random numbers from a NormalDistribution with a mean and standard \
+deviation of your choosing."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.662809815936838*^9, 3.6628098622491693`*^9}}],
+
+Cell["\<\
+Use the function MovingAverage to compute the moving average of the list, \
+with runs of length 2\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.662809870558694*^9, 3.662809903220433*^9}, {
+  3.66281137141643*^9, 3.6628113714250307`*^9}}],
+
+Cell["\<\
+Use the function Accumulate to compute a running total of this output\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.662809870558694*^9, 3.662809903220433*^9}, {
+  3.66281137141643*^9, 3.662811394798111*^9}}],
+
+Cell["Show the output of step 3 using ListPlot", "ItemNumbered",
+ CellChangeTimes->{{3.662809870558694*^9, 3.6628099193676577`*^9}, {
+  3.662811163537574*^9, 3.6628111783365593`*^9}, {3.662811400942752*^9, 
+  3.662811407742812*^9}}],
+
+Cell["\<\
+Combine steps 1-4 to create a function called movingAveragePlot with the \
+following arguments:\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.662809870558694*^9, 3.6628099193676577`*^9}, {
+  3.662811163537574*^9, 3.662811200690888*^9}, {3.662811409699658*^9, 
+  3.662811409761078*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["number of variates generated from NormalDistribution", "SubitemNumbered",
+ CellChangeTimes->{{3.662809870558694*^9, 3.6628099193676577`*^9}, {
+  3.662811163537574*^9, 3.662811226218746*^9}, {3.662811432467832*^9, 
+  3.662811445575742*^9}}],
+
+Cell["the size of the runs used in MovingAverage", "SubitemNumbered",
+ CellChangeTimes->{{3.662809870558694*^9, 3.6628099193676577`*^9}, {
+  3.662811163537574*^9, 3.662811226218746*^9}, {3.662811432467832*^9, 
+  3.6628114807270737`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"movingAveragePlot", "[", 
+   RowBox[{"variates_", ",", "runSize_"}], "]"}], ":=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"Accumulate", "@", 
+    RowBox[{"MovingAverage", "[", 
+     RowBox[{
+      RowBox[{"RandomVariate", "[", 
+       RowBox[{
+        RowBox[{"NormalDistribution", "[", 
+         RowBox[{"0", ",", "1"}], "]"}], ",", "variates"}], "]"}], ",", 
+      "runSize"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.662811233005005*^9, 3.6628112800320253`*^9}, {
+  3.6628113157704687`*^9, 3.662811332758334*^9}, {3.662811420015738*^9, 
+  3.662811430587018*^9}, {3.6628114708808804`*^9, 3.6628114956396723`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Prevent the function from evaluating if the following conditions are NOT met:\
+\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.662811554629294*^9, 3.6628115696855497`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["the number of variates is an Integer", "SubitemNumbered",
+ CellChangeTimes->{{3.662811554629294*^9, 3.662811616864607*^9}}],
+
+Cell["\<\
+the number of variates is greater than twice the run size used in \
+MovingAverage\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.662811554629294*^9, 3.6628116330269537`*^9}, {
+  3.662811793100873*^9, 3.662811793113969*^9}, {3.662811917586862*^9, 
+  3.662811930403713*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"movingAveragePlot", "[", 
+    RowBox[{"variates_", ",", "runSize_"}], "]"}], "/;", 
+   RowBox[{"variates", ">", "runSize"}]}], ":=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"Accumulate", "@", 
+    RowBox[{"MovingAverage", "[", 
+     RowBox[{
+      RowBox[{"RandomVariate", "[", 
+       RowBox[{
+        RowBox[{"NormalDistribution", "[", 
+         RowBox[{"0", ",", "1"}], "]"}], ",", "variates"}], "]"}], ",", 
+      "runSize"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.662811233005005*^9, 3.6628112800320253`*^9}, {
+  3.6628113157704687`*^9, 3.662811332758334*^9}, {3.662811420015738*^9, 
+  3.662811430587018*^9}, {3.6628114708808804`*^9, 3.6628114956396723`*^9}, {
+  3.6628116347472258`*^9, 3.662811644934214*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["RandomReal", "Section",
+ CellChangeTimes->{{3.6628072009364643`*^9, 3.662807203292781*^9}, {
+  3.662811815378201*^9, 3.662811818466207*^9}}],
+
+Cell["\<\
+There is a fundamental difference between the two following assignments:\
+\>", "Text",
+ CellChangeTimes->{{3.662811821893771*^9, 3.662811835179722*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"set$Random", "=", 
+  RowBox[{"RandomInteger", "[", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "10"}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6628118362891493`*^9, 3.662811851589531*^9}, {
+  3.662812060699649*^9, 3.662812061581274*^9}, {3.66281210556623*^9, 
+  3.662812105658805*^9}, {3.662812143925521*^9, 3.662812145863449*^9}}],
+
+Cell[BoxData["5"], "Output",
+ CellChangeTimes->{
+  3.662811941063972*^9, {3.662812062981336*^9, 3.662812064010449*^9}, 
+   3.662812106411474*^9, 3.662812150565021*^9, 3.6628122007821503`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"setDelayed$Random", ":=", 
+  RowBox[{"RandomInteger", "[", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "10"}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6628118542609167`*^9, 3.6628118718120823`*^9}, {
+  3.662812098207386*^9, 3.662812108505733*^9}, {3.662812147601573*^9, 
+  3.662812148681884*^9}}],
+
+Cell["\<\
+Explain why the output of the following expression changes each time it is \
+evaluated:\
+\>", "Text",
+ CellChangeTimes->{{3.662811966799732*^9, 3.662811968270692*^9}, {
+  3.6628122380494823`*^9, 3.662812257503106*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"ListLinePlot", "[", 
+    RowBox[{"RandomInteger", "[", 
+     RowBox[{"set$Random", ",", "setDelayed$Random"}], "]"}], "]"}], ",", 
+   "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6628120775028267`*^9, 3.6628120867865753`*^9}, {
+   3.662812120795856*^9, 3.662812138174336*^9}, 3.662812210332819*^9, {
+   3.663587363607386*^9, 3.663587368115568*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 712},
+WindowMargins->{{212, Automatic}, {Automatic, 44}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 120, 1, 92, "Title"],
+Cell[CellGroupData[{
+Cell[725, 27, 157, 2, 64, "Section"],
+Cell[885, 31, 117, 1, 30, "Text"],
+Cell[1005, 34, 407, 10, 28, "Input"],
+Cell[1415, 46, 259, 7, 28, "Input"],
+Cell[1677, 55, 411, 11, 28, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2125, 71, 97, 1, 64, "Section"],
+Cell[2225, 74, 164, 3, 30, "Text"],
+Cell[2392, 79, 197, 4, 30, "Text"],
+Cell[2592, 85, 240, 6, 30, "Text"],
+Cell[2835, 93, 239, 5, 46, "Input"],
+Cell[3077, 100, 377, 9, 63, "Input"],
+Cell[CellGroupData[{
+Cell[3479, 113, 327, 8, 49, "ItemNumbered"],
+Cell[3809, 123, 245, 5, 30, "ItemNumbered"],
+Cell[4057, 130, 215, 4, 30, "ItemNumbered"],
+Cell[4275, 136, 232, 3, 30, "ItemNumbered"],
+Cell[4510, 141, 293, 6, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[4828, 151, 245, 3, 24, "SubitemNumbered"],
+Cell[5076, 156, 237, 3, 24, "SubitemNumbered"]
+}, Open  ]]
+}, Open  ]],
+Cell[5340, 163, 660, 15, 63, "Input"],
+Cell[CellGroupData[{
+Cell[6025, 182, 179, 4, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[6229, 190, 129, 1, 24, "SubitemNumbered"],
+Cell[6361, 193, 282, 6, 24, "SubitemNumbered"]
+}, Open  ]]
+}, Open  ]],
+Cell[6670, 203, 774, 18, 63, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7481, 226, 146, 2, 64, "Section"],
+Cell[7630, 230, 162, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[7817, 237, 359, 7, 28, "Input"],
+Cell[8179, 246, 191, 3, 28, "Output"]
+}, Open  ]],
+Cell[8385, 252, 324, 7, 28, "Input"],
+Cell[8712, 261, 228, 5, 30, "Text"],
+Cell[8943, 268, 410, 9, 28, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
